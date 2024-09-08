@@ -9,16 +9,19 @@ OSS_BUCKET_NAME = os.getenv('OSS_BUCKET_NAME')
 
 def upload_file_to_oss(file_path, destination_path):
     try:
+        # 使用旧版字符串格式化方法
+        oss_url = 'oss://%s/%s' % (OSS_BUCKET_NAME, destination_path)
+        
         subprocess.run([
             'ossutil', 'cp', file_path,
-            f'oss://{OSS_BUCKET_NAME}/{destination_path}',
+            oss_url,
             '--access-key-id', OSS_ACCESS_KEY_ID,
             '--access-key-secret', OSS_SECRET_ACCESS_KEY,
             '--endpoint', OSS_ENDPOINT
         ], check=True)
-        print(f"File {file_path} uploaded to OSS successfully.")
+        print("File %s uploaded to OSS successfully." % file_path)
     except subprocess.CalledProcessError as e:
-        print(f"Failed to upload file {file_path}: {e}")
+        print("Failed to upload file %s: %s" % (file_path, e))
 
 if __name__ == '__main__':
     # 假设你要上传的是名为hello.txt的文件
@@ -29,4 +32,4 @@ if __name__ == '__main__':
     if os.path.exists(file_path):
         upload_file_to_oss(file_path, destination_path)
     else:
-        print(f"File {file_path} does not exist.")
+        print("File %s does not exist." % file_path)
