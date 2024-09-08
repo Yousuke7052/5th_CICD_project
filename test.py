@@ -21,9 +21,9 @@ def upload_file_to_oss(file_path, destination_path):
         print(f"Failed to upload file {file_path}: {e}")
 
 if __name__ == '__main__':
-    # 假设你要上传的是名为myfile.txt的文件
-    file_path = 'path/to/your/myfile.txt'  # 这里的路径应该是相对于工作目录的相对路径
-    destination_path = 'path/to/destination/myfile.txt'
+    # 假设你要上传的是名为hello.txt的文件
+    file_path = 'hello.txt'  # 相对路径
+    destination_path = 'path/to/destination/hello.txt'  # OSS中的目标路径
     
     # 检查文件是否存在
     if os.path.exists(file_path):
