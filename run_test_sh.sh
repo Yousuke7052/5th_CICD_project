@@ -19,7 +19,7 @@ EOT
 fi
 
 # 给脚本添加执行权限
-chmod +x scripts/run_test_sh.sh
+chmod +x run_test_sh.sh
 
 # 运行Shell脚本
-./scripts/run_test_sh.sh
+./run_test_sh.sh
