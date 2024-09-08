@@ -24,7 +24,7 @@ ossutil --version
 
 
 # 使用配置文件执行ossutil命令
-ossutil cp hello.txt oss://$OSS_BUCKET_NAME/hello_SH.txt 
+ossutil cp hello.txt oss://$OSS_BUCKET_NAME/hello_SH.txt --config-file ~/.ossutilconfig
 
 # 检查上传是否成功
 if [ $? -eq 0 ]; then
